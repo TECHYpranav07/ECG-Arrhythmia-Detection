@@ -1,6 +1,6 @@
 # ECG-Based Arrhythmia Detection using Capsule Networks (CapsNet) & CNN Models
 
-This repository contains an advanced Deep Learning project for detecting Cardiac Arrhythmia from raw 12-lead ECG paper sheet images. The project implements and compares transfer learning baseline **CNN architectures** against a custom-built **Capsule Network (CapsNet)**.
+This repository contains an advanced Deep Learning project for detecting Cardiac Arrhythmia from raw 12-lead ECG paper sheet images. The project implements and compares transfer learning baseline *[...]
 
 It features a complete pipeline that crops raw paper ECG sheets into individual leads, processes them, runs predictions, and outputs a diagnostic recommendation using a majority voting scheme.
 
@@ -8,9 +8,9 @@ It features a complete pipeline that crops raw paper ECG sheets into individual 
 
 ## 📌 Project Overview & Rationale
 
-Electrocardiograms (ECGs) are primary clinical tools for diagnosing cardiac anomalies. While traditional CNNs excel at image classification, they lack spatial invariance—pooling layers discard crucial spatial relationships between features.
+Electrocardiograms (ECGs) are primary clinical tools for diagnosing cardiac anomalies. While traditional CNNs excel at image classification, they lack spatial invariance—pooling layers discard c[...]
 
-**Capsule Networks (CapsNet)** address this limitation by replacing scalar neurons with vector capsules that encode both the presence of a feature and its spatial properties (like angle, size, and location). This makes them ideal for detecting arrhythmias in ECG leads.
+**Capsule Networks (CapsNet)** address this limitation by replacing scalar neurons with vector capsules that encode both the presence of a feature and its spatial properties (like angle, size, and[...]
 
 ---
 
@@ -18,7 +18,7 @@ Electrocardiograms (ECGs) are primary clinical tools for diagnosing cardiac anom
 
 Here is a screen recording demonstrating the preprocessing, lead segmentation, and model prediction workflow:
 
-**[▶️ Watch Demo Video](Screen%20Recording%202026-03-24%20211253.mp4)** ← Click to play
+<video src="Screen Recording 2026-03-24 211253.mp4" width="100%" controls></video>
 
 ---
 
@@ -70,7 +70,7 @@ The CNN baseline notebook evaluates and compares several pre-trained state-of-th
   - Precision: **0.99** (Abnormal), **0.95** (Normal)
   - Recall: **0.94** (Abnormal), **0.99** (Normal)
 * **CNN Baseline Performance**:
-  - The CNN models also achieve high accuracies (~98%), but require larger image inputs (`224x224x3`) and have orders of magnitude more parameters than CapsNet, which processes `128x128x1` grayscale images.
+  - The CNN models also achieve high accuracies (~98%), but require larger image inputs (`224x224x3`) and have orders of magnitude more parameters than CapsNet, which processes `128x128x1` graysca[...]
 
 ---
 
@@ -110,13 +110,13 @@ You can train either model by opening the respective Jupyter Notebook in your en
 *Note: The notebooks are preconfigured to save training splits (`X_train.npy`, etc.) to skip preprocessing on subsequent runs.*
 
 ### 3. Extract Leads from a Raw ECG Sheet
-Use `preprocess.py` to segment a patient's full ECG sheet into 13 individual lead images. If the sheet's resolution is not `2213x1572`, the script will automatically resize it for exact coordinate cropping:
+Use `preprocess.py` to segment a patient's full ECG sheet into 13 individual lead images. If the sheet's resolution is not `2213x1572`, the script will automatically resize it for exact coordinat[...]
 ```bash
 python src/preprocess.py --image "path/to/raw_patient_ecg.jpg" --outdir "temp_leads"
 ```
 
 ### 4. Perform End-to-End Classification (weighted majority voting)
-Pass the folder of extracted leads and a trained model file to `predict.py`. The script will predict normal/abnormal for each of the 13 leads, run a majority vote, and print the diagnosis conclusion:
+Pass the folder of extracted leads and a trained model file to `predict.py`. The script will predict normal/abnormal for each of the 13 leads, run a majority vote, and print the diagnosis conclus[...]
 ```bash
 python src/predict.py --model "path/to/trained_capsnet.h5" --leaddir "temp_leads"
 ```
