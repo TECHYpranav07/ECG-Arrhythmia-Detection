@@ -1,6 +1,6 @@
 # ECG-Based Arrhythmia Detection using Capsule Networks (CapsNet) & CNN Models
 
-This repository contains an advanced Deep Learning project for detecting Cardiac Arrhythmia from raw 12-lead ECG paper sheet images. The project implements and compares transfer learning baseline **Convolutional Neural Networks (CNNs)** and custom **Capsule Networks (CapsNet)** with dynamic routing.
+This repository contains an advanced Deep Learning project for detecting Cardiac Arrhythmia from raw 12-lead ECG paper sheet images. The project implements and compares transfer learning baseline **CNN architectures** against a custom-built **Capsule Network (CapsNet)**.
 
 It features a complete pipeline that crops raw paper ECG sheets into individual leads, processes them, runs predictions, and outputs a diagnostic recommendation using a majority voting scheme.
 
@@ -8,16 +8,17 @@ It features a complete pipeline that crops raw paper ECG sheets into individual 
 
 ## 📌 Project Overview & Rationale
 
-Electrocardiograms (ECGs) are primary clinical tools for diagnosing cardiac anomalies. While traditional CNNs excel at image classification, they lack spatial invariance—pooling layers discard crucial structural pose, rotation, and relative positioning information of the wave features. 
+Electrocardiograms (ECGs) are primary clinical tools for diagnosing cardiac anomalies. While traditional CNNs excel at image classification, they lack spatial invariance—pooling layers discard crucial spatial relationships between features.
 
-**Capsule Networks (CapsNet)** address this limitation by replacing scalar neurons with vector capsules that encode both the presence of a feature and its spatial properties (like angle, size, and location). Dynamic routing matches lower-level features (e.g., specific wave segments) to higher-level entities (normal vs. abnormal heartbeats) without losing structural context, leading to highly robust classification with fewer parameters.
+**Capsule Networks (CapsNet)** address this limitation by replacing scalar neurons with vector capsules that encode both the presence of a feature and its spatial properties (like angle, size, and location). This makes them ideal for detecting arrhythmias in ECG leads.
 
 ---
 
 ## 📺 Demo Video
+
 Here is a screen recording demonstrating the preprocessing, lead segmentation, and model prediction workflow:
 
-<video src="Screen%20Recording%202026-03-24%20211253.mp4" width="100%" controls></video>
+**[▶️ Watch Demo Video](Screen%20Recording%202026-03-24%20211253.mp4)** ← Click to play
 
 ---
 
@@ -87,6 +88,7 @@ The CNN baseline notebook evaluates and compares several pre-trained state-of-th
 ├── CAPSNET_work_with_preprocess_predict_dynamic_routng_99_percent.ipynb# Best-performing CapsNet model
 ├── CNNs_(1)_UPDATED (1).ipynb                                         # CNN Baselines
 ├── requirements.txt                                                   # Project requirements
+├── Screen Recording 2026-03-24 211253.mp4                             # Demo video
 └── README.md                                                          # This documentation
 ```
 
