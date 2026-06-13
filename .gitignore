@@ -1,0 +1,24 @@
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints and caches
+.ipynb_checkpoints/
+IPython_checkpoints/
+.virtual_documents/
+
+# Local temporary lead images directories
+temp_leads/
+
+# NumPy arrays from splits
+*.npy
+
+# OS files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# IDE configurations
+.vscode/
+.idea/
