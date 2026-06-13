@@ -14,14 +14,6 @@ Electrocardiograms (ECGs) are primary clinical tools for diagnosing cardiac anom
 
 ---
 
-## 📺 Demo Video
-
-Here is a screen recording demonstrating the preprocessing, lead segmentation, and model prediction workflow:
-
-<video src="Screen Recording 2026-03-24 211253.mp4" width="100%" controls></video>
-
----
-
 ## 📊 Dataset Structure & Statistics
 
 The dataset consists of raw ECG sheets with a standard resolution of `2213x1572` pixels, categorized into two main groups:
